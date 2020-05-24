@@ -14,10 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookStoreBackend\BookStoreBackend.csproj" />
-    <ProjectReference Include="..\Manager\Manager.csproj" />
-    <ProjectReference Include="..\Model\Model.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\BookStoreBackend\BookStoreWebApi.csproj" />
+    <ProjectReference Include="..\Manager\BookStoreBusinessLayer.csproj" />
+    <ProjectReference Include="..\Model\BookStoreCommonLayer.csproj" />
+    <ProjectReference Include="..\Repository\BookStoreRepositoryLayer.csproj" />
   </ItemGroup>
 
 </Project>

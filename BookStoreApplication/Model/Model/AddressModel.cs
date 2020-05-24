@@ -9,11 +9,15 @@ namespace Model.Model
 {
    public class AddressModel
     {
-        [Key]        
+        [Key]    
+        [Required]
         public string Email { get; set; }
-       
+       [Required(ErrorMessage = "Enter your Full Name")]
+       [Display(Name = "Full Name")]
+       [StringLength(25)]
         public string FullName { get; set; }
- 
+        [Required(ErrorMessage = "Enter your Full Name")]
+        [MaxLength(10)]
         public string ContactNumber { get; set; }
        
         public string DeliveryAddress { get; set; }

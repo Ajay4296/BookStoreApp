@@ -10,7 +10,7 @@ using Model.Model;
 namespace BookStoreBackend.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    
     public class LoginController : ControllerBase
     {
         /// <summary>
@@ -64,7 +64,13 @@ namespace BookStoreBackend.Controllers
                 return this.Ok(userChanges.Email);
             }
 
-            return this.BadRequest("Login Failed");
+              //  StatusCode(400, "Login Failed");
+            return this.BadRequest(Json("Login Failed"));
+        }
+
+        private object Json(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 

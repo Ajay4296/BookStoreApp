@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Repository.DBContext;
+using BookStoreRepositoryLayer.Common;
 
 namespace Repository.LoginRepo
 {
@@ -33,6 +34,8 @@ namespace Repository.LoginRepo
         /// </returns>
         public Task<int> AddUser(User user)
         {
+            var encriptPWd = EncriptAndDecript.base64Encode(user.Password);
+            user.Password = encriptPWd;
             this.userDbContext.Users.Add(user);
             var result = this.userDbContext.SaveChangesAsync();
             return result;
@@ -45,9 +48,10 @@ namespace Repository.LoginRepo
         /// <param name="password">The password.</param>
         /// <returns>
         /// It return true if Login successful.
-        /// </returns>
+        /// </returns>u
         public bool Login(User userChanges)
         {
+            var decriptPWD = EncriptAndDecript.base64Decode(userChanges.Password);
             var result = this.userDbContext.Users.Where(id => id.Email == userChanges.Email && id.Password == userChanges.Password).FirstOrDefault();
             if (result != null)
             {

@@ -10,11 +10,13 @@ namespace Model.Model
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
+        [Required]
         public int CartID { get; set; }
 
        // [ForeignKey("book")]
+       [Required]
         public int Book_ID { get; set; }
-
+        [Required]
         public int SelectBookCount { get; set; }
 
         //[ForeignKey("Book_ID")]
